@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="bg-logogray py-3">
+    <div class="py-3" style="background-color:#ffb4a2;">
       <div class="d-flex justify-content-center">
       <ul class="list-group ">
         <li><img width="20" src="https://upload.cc/i1/2021/03/28/70ZgIY.png" alt=""> 週一至週六09:00~20:00</li>
@@ -9,7 +9,6 @@
       </ul>
       </div>
       <div class="text-center ">資料、圖片、文章來源皆來自網路，僅用來做為學習用途。</div>
-      <span class="float-right"><a href="#">Back to top</a></span>
     </div>
   </footer>
 </template>

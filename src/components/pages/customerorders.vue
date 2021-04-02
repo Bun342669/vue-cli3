@@ -1,7 +1,7 @@
 <template>
   <div class="row mx-0 ">
     <!--購物車圖式-->
-    <div class="shoppingcar bg-black p-3" v-if="shoppingcart_length > 0">
+    <div class="shoppingcar  p-3" style="background-color:#6d6875;" v-if="shoppingcart_length > 0">
     <router-link to="/shoppingcar" >
     <img  width="40" src="https://upload.cc/i1/2021/03/28/xHQI2b.png"  alt="">
     <span class="car_length text-white text-center bg-danger rounded-circle" >
@@ -21,21 +21,16 @@
              :style="{backgroundImage:`url(${item.imageUrl})`}">
             </div>
             <div class="row justify-content-between">
-              <div class="col-6 border-right border-dark text-center py-lg-2">
+              <div class="col-6  text-center py-lg-2">
               <h5>{{item.title}}</h5>
               </div>
               <div class="col-6 text-center py-lg-2"><h5>NT$ {{item.price}} 元</h5></div>
             </div>
-            <div class="card-footer d-flex">
-            <button type="button" class="btn btn-outline-secondary btn-sm"
+            <div class="card d-flex mb-3">
+            <button type="button" class="btn btn-outline-info btn-sm"
             @click="getproduct(item.id)" >
                 <i class="fas fa-spinner fa-spin" v-if="status === item.id"></i>
                 查看更多
-            </button>
-            <button type="button" class="btn btn-outline-danger btn-sm ml-auto"
-            @click="addtoCart(item.id)">
-                <i class="fas fa-spinner fa-spin" v-if="status === item.id"></i>
-                加到購物車
             </button>
             </div>
         </div>

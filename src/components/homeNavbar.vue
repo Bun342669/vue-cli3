@@ -1,16 +1,16 @@
 <template>
   <div>
-    <header class="bg-logogray d-flex justify-content-between align-items-center"
-    :class="{'menu_show':show_menu }">
+    <header class="d-flex justify-content-between align-items-center"
+    :class="{'menu_show':show_menu }" style="background-color:#ffb4a2">
         <router-link class="" to="/">
-        <img  src="https://upload.cc/i1/2021/03/22/4EMCwa.jpg" height="100" alt="">
+        <img  src="https://upload.cc/i1/2021/04/01/wHCIhK.png" height="100" alt="">
         </router-link>
         <ul class="menu">
-          <li class="h3"><router-link class="text-black"
+          <li class="h3"><router-link class="text-white px-4 py-md-2 navbarli"
           to="/">首頁</router-link></li>
-          <li class="h3"><router-link class="text-black"
+          <li class="h3"><router-link class="text-white px-4 py-md-2 navbarli"
           to="/customerorders">商品列表</router-link></li>
-          <li class="h3"><router-link class="text-black"
+          <li class="h3"><router-link class="text-white px-4 py-md-2 navbarli"
           to="/login">後台登入</router-link></li>
         </ul>
         <a class="showmenu" @click="show_menu = !show_menu" href="#">
@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration:none;
+}
 .ul ,li {
   list-style:none;
 }
@@ -46,6 +49,11 @@ export default {
 }
 .showmenu {
   display:none;
+}
+@media (min-width:768px) {
+  .navbarli:hover {
+  background-color:#e5989b;
+  }
 }
 @media (max-width: 767px ) {
   .menu {
@@ -62,12 +70,16 @@ export default {
     left:0;
     top:100px;
     z-index:100;
-    background-color:#f3f3f3;
+    background-color:#ffb4a2;
     text-align:center;
   }
   .menu li {
     border-bottom: 1px dashed black;
     margin-right:0;
+    margin-bottom:0;
+  }
+  .menu li:hover{
+    background-color:#e5989b;
   }
 }
 </style>
