@@ -44,7 +44,7 @@
 
 <script>
 
-import $ from 'jquery';
+// import $ from 'jquery';
 import pagination from '../pagination.vue';
 import homesidebar from '../homesidebar.vue';
 
@@ -91,23 +91,6 @@ export default {
         // console.log('我是response的id', response.data.product.id);
         vm.status = '';
         vm.$router.push(`customerorder/${response.data.product.id}`);
-      });
-    },
-    addtoCart(id, qty = 1) {
-      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-      const vm = this;
-      vm.status = id;
-      const cart = {
-        product_id: id,
-        qty,
-      };
-      this.$http.post(api, { data: cart }).then((response) => {
-        if (response.data.success) {
-          // console.log('addtoCart', response);
-          vm.status = '';
-          vm.getCart();
-          $('#productModal').modal('hide');
-        }
       });
     },
     getCart() { // 取得購物車有幾個物件

@@ -1,6 +1,7 @@
 <template>
   <div >
     <homeNavbar></homeNavbar>
+      <alert></alert>
       <div class="row flex-column mx-0">
       <router-view ></router-view>
       <customerfooter ></customerfooter>
@@ -12,6 +13,7 @@
 
 import homeNavbar from './homeNavbar.vue';
 import customerfooter from './customerfooter.vue';
+import alert from './AlertMessage.vue';
 
 export default {
   props: {
@@ -20,6 +22,7 @@ export default {
   components: {
     homeNavbar,
     customerfooter,
+    alert,
   },
 };
 </script>

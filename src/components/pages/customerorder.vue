@@ -118,18 +118,30 @@ export default {
       });
     },
     addtoCart(id, qty = 1) {
+      console.log(id, qty);
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       const vm = this;
-      vm.status = id;
+      vm.isLoading = true;
       const cart = {
         product_id: id,
         qty,
       };
-      this.$http.post(api, { data: cart }).then((response) => {
-        if (response.data.success) {
-          vm.status = '';
-          vm.getCart();
-        }
+      this.$http.get(api).then((response) => {
+        response.data.data.carts.forEach((item) => {
+          if (item.product.id === id) {
+            cart.qty = item.qty + cart.qty;
+            const delapi = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${item.id}`;
+            this.$http.delete(delapi).then(() => {
+            });
+          }
+        });
+        this.$http.post(api, { data: cart }).then((responsee) => {
+          if (responsee.data.success) {
+            vm.getCart();
+          }
+        });
+        vm.isLoading = false;
+        this.$bus.$emit('message:push', '已成功加入購物車', 'success');
       });
     },
     getCart() { // 取得購物車有幾個物件

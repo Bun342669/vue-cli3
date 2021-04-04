@@ -26,7 +26,9 @@
                       已套用優惠券
                       </div>
                     </td>
-                    <td>{{itemcart.qty}}</td>
+                    <td>
+                      <span class="px-3">{{itemcart.qty}}</span>
+                    </td>
                     <td>{{itemcart.final_total}}</td>
                 </tr>
                 </tbody>
@@ -155,13 +157,13 @@ export default {
         vm.isLoading = false;
       });
     },
-    getCart() {
+    getCart() { // 取得購物車
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       const vm = this;
       vm.isLoading = true;
       this.$http.get(api).then((response) => {
         vm.shoppingcart = response.data.data;
-        // console.log('vm.shoppingcart', vm.shoppingcart.carts);
+        console.log('vm.shoppingcart', vm.shoppingcart);
         vm.isLoading = false;
       });
     },
