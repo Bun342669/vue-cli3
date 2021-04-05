@@ -17,7 +17,7 @@
     </div>
     <div class="ml-3" >
       <div>
-        <h3 class="text-center ">{{product.title}}</h3>
+        <h2 class="text-center ">{{product.title}}</h2>
         <p class="h5">{{product.description}}</p>
         <div class="contentp">
           <span>{{product.content}}</span>
@@ -165,6 +165,13 @@ export default {
 </script>
 
 <style scoped>
+a {
+    text-decoration:none;
+}
+h3:hover {
+  background-color:#e5989b;
+  color:white;
+}
 .wrap {
   max-width:1063px;
   margin:  auto;
