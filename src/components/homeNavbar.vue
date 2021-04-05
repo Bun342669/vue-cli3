@@ -6,11 +6,14 @@
         <img  src="https://upload.cc/i1/2021/04/01/wHCIhK.png" height="100" alt="">
         </router-link>
         <ul class="menu">
-          <li class="h3"><router-link class="text-white px-4 py-md-2 navbarli"
+          <li class="h3" @click="show_menu = !show_menu">
+          <router-link class="text-white px-4 py-md-2 navbarli d-block"
           to="/">首頁</router-link></li>
-          <li class="h3"><router-link class="text-white px-4 py-md-2 navbarli"
+          <li class="h3" @click="show_menu = !show_menu">
+          <router-link class="text-white px-4 py-md-2 navbarli d-block"
           to="/customerorders">商品列表</router-link></li>
-          <li class="h3"><router-link class="text-white px-4 py-md-2 navbarli"
+          <li class="h3" >
+          <router-link class="text-white px-4 py-md-2 navbarli d-block"
           to="/login">後台登入</router-link></li>
         </ul>
         <a class="showmenu" @click="show_menu = !show_menu" href="#">
