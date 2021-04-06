@@ -50,7 +50,7 @@
           <ul  class="nav justify-content-center ">
             <li class="nav-item text-center h5 "
               id="productsmenu">
-              <a href="#" class="px-sm-4 py-2"
+              <a href="#" class="px-sm-3 px-2 py-2 border"
               :class="{ 'nowproductsmenu' : menu.all }"
               @click.prevent="search('all');menu.all=true; menu.cake=false;
               menu.pudding=false; menu.drink=false; ">
@@ -58,21 +58,24 @@
               </a>
             </li>
             <li class="nav-item text-center  h5" id="productsmenu">
-              <a href="#" class="px-sm-5 py-2" :class="{ 'nowproductsmenu' : menu.cake }"
+              <a href="#" class="px-sm-4 px-2 py-2 border"
+              :class="{ 'nowproductsmenu' : menu.cake }"
             @click.prevent="search('蛋糕'); menu.all=false; menu.cake=true;
             menu.pudding=false; menu.drink=false; ">
               蛋糕
               </a>
             </li>
             <li class="nav-item text-center  h5" id="productsmenu">
-              <a href="#" class="px-sm-5 py-2" :class="{ 'nowproductsmenu' : menu.pudding }"
+              <a href="#" class="px-sm-4 px-2 py-2 border"
+              :class="{ 'nowproductsmenu' : menu.pudding }"
               @click.prevent="search('布丁');menu.all=false; menu.cake=false;
             menu.pudding=true; menu.drink=false;">
               布丁
               </a>
             </li>
             <li class="nav-item text-center  h5 " id="productsmenu">
-              <a href="#" class="px-sm-5 py-2" :class="{ 'nowproductsmenu' : menu.drink }"
+              <a href="#" class="px-sm-4 px-2 py-2 border"
+              :class="{ 'nowproductsmenu' : menu.drink }"
             @click.prevent="search('飲品');menu.all=false; menu.cake=false;
             menu.pudding=false; menu.drink=true;">
               飲品

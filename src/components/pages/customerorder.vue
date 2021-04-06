@@ -1,7 +1,7 @@
 <template>
   <div class="wrap" >
   <!--購物車圖式-->
-    <div class="shoppingcar p-3" style="background-color:#6d6875;">
+    <div class="shoppingcar p-3" >
     <router-link to="/shoppingcar">
     <span class="car_length text-white text-center bg-danger rounded-circle"
     v-if="shoppingcart_length > 0" >
@@ -11,11 +11,12 @@
     </router-link>
     </div>
   <loading :active.sync="isLoading"></loading>
-  <div class="d-md-flex justify-content-center mt-5">
-    <div class="text-center ml-3 ">
-      <img :src="product.imageUrl" class="img-fluid frame"   alt="">
+  <div class="d-lg-flex justify-content-center mt-5">
+    <div class="text-center mx-3 img-fluid">
+      <img :src="product.imageUrl" class=" w-100" style="max-width:700px; " alt="">
     </div>
-    <div class="ml-3" >
+
+    <div class="mx-3" >
       <div>
         <h2 class="text-center ">{{product.title}}</h2>
         <p class="h5">{{product.description}}</p>
@@ -25,8 +26,8 @@
       </div>
       <div class="h5" v-if="product.price">NT$ {{product.price}}元
       </div>
-      <select name="" class="form-control mt-3" v-model="product.num">
-      <option :value="num" v-for="num in 10" :key="num" >
+      <select  class="form-control mt-3" v-model="product.num">
+      <option :value="num" v-for="num in 15" :key="num">
           選購 {{num}} {{product.unit}}
       </option>
       </select>
@@ -48,19 +49,25 @@
     <div class="row mx-0 ">
       <div class="col-lg-4 text-center ">
         <a href="#" @click="getRelatedproduct(products[1].id)">
-        <img class="img-fluid box" src="https://upload.cc/i1/2021/03/26/QwClYx.jpg" alt="">
+        <div  style="height: 300px;background-size: cover; background-position: center;
+        backgroundImage:url(https://upload.cc/i1/2021/03/26/QwClYx.jpg)">
+        </div>
         <h3 class="pt-2">焦糖布丁</h3>
         </a>
       </div>
       <div class="col-lg-4 text-center ">
         <a href="#" @click="getRelatedproduct(products[0].id)">
-        <img class="img-fluid box" src="https://upload.cc/i1/2021/03/26/KrGovX.jpg" alt="">
+        <div  style="height: 300px;background-size: cover; background-position: center;
+        backgroundImage:url(https://upload.cc/i1/2021/03/26/KrGovX.jpg)">
+        </div>
         <h3 class="pt-2">千層蛋糕</h3>
         </a>
       </div>
       <div class="col-lg-4 text-center ">
         <a href="#" @click="getRelatedproduct(products[3].id)">
-        <img class="img-fluid box"  src="https://upload.cc/i1/2021/03/26/jSMnwX.jpg" alt="">
+        <div  style="height: 300px;background-size: cover; background-position: center;
+        backgroundImage:url(https://upload.cc/i1/2021/03/26/jSMnwX.jpg)">
+        </div>
         <h3 class="pt-2">冰淇淋蛋糕</h3>
         </a>
       </div>
@@ -98,7 +105,7 @@ export default {
       vm.isLoading = true;
       this.$http.get(api).then((response) => {
         if (response.data.success) {
-          // console.log(response.data);
+          console.log('yooo', response.data);
           vm.product = response.data.product;
           vm.isLoading = false;
         }
@@ -179,10 +186,6 @@ h3:hover {
 .box {
   height: 350px;
 }
-.frame {
-  max-width:700px;
-  max-height:500px;
-}
 .contentp {
   max-width:400px;
 }
@@ -191,6 +194,7 @@ h3:hover {
   right: 10px;
   bottom: 100px;
   z-index:100;
+  background-color:#ffb4a2;
 }
 .car_length {
   position: fixed;
@@ -198,5 +202,21 @@ h3:hover {
   bottom:140px;
   height:20px;
   width:20px;
+}
+@media (max-width: 768px) {
+  .car_length {
+    position: absolute;
+    top:10px;
+    left:revert;
+    right:5px;
+  }
+  .shoppingcar{
+    position: absolute;
+    bottom:revert;
+    left:revert;
+    right:60px;
+    top:20px;
+    background-color:transparent;
+  }
 }
 </style>

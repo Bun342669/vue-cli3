@@ -1,6 +1,6 @@
 <template>
   <div >
-    <homeNavbar></homeNavbar>
+    <homeNavbar class="w-100"></homeNavbar>
       <alert></alert>
       <div class="row flex-column mx-0">
       <router-view ></router-view>

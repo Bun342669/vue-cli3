@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="d-flex justify-content-between align-items-center"
+    <header class="d-flex justify-content-between align-items-center "
     :class="{'menu_show':show_menu }" style="background-color:#ffb4a2">
         <router-link class="" to="/">
         <img  src="https://upload.cc/i1/2021/04/01/wHCIhK.png" height="100" alt="">

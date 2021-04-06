@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-center">
       <ul class="list-group ">
         <li><img width="20" src="https://upload.cc/i1/2021/03/28/70ZgIY.png" alt=""> 週一至週六09:00~20:00</li>
-        <li><img width="20" src="https://upload.cc/i1/2021/03/28/WUspIm.png" alt=""> 台南市安南區安中路XX號</li>
+        <li><img width="20" src="https://upload.cc/i1/2021/03/28/WUspIm.png" alt=""> 台南市XX區XX路XX號</li>
         <li><img class="text-center" width="20" src="https://upload.cc/i1/2021/03/28/1ghYE5.png" alt=""> (06)-123-4567</li>
       </ul>
       </div>
@@ -20,4 +20,5 @@ ul,li {
 footer {
   margin-top:auto ;
 }
+
 </style>

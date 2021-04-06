@@ -1,7 +1,7 @@
 <template>
   <div class="row mx-0 ">
     <!--購物車圖式-->
-    <div class="shoppingcar  p-3" style="background-color:#6d6875;" v-if="shoppingcart_length > 0">
+    <div class="shoppingcar  p-3" style="background-color:#ffb4a2;" v-if="shoppingcart_length > 0">
     <router-link to="/shoppingcar" >
     <img  width="40" src="https://upload.cc/i1/2021/03/28/xHQI2b.png"  alt="">
     <span class="car_length text-white text-center bg-danger rounded-circle" >
@@ -167,14 +167,18 @@ export default {
 }
 @media (max-width: 768px) {
   .car_length {
-    bottom:170px;
+    position: absolute;
+    top:10px;
     left:revert;
     right:5px;
   }
   .shoppingcar{
-    bottom:130px;
+    position: absolute;
+    bottom:revert;
     left:revert;
-    right:0;
+    right:60px;
+    top:20px;
+    background-color:transparent;
   }
 }
 </style>

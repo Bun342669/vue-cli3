@@ -3,26 +3,26 @@
     <loading :active.sync="isLoading"></loading>
     <!--購物車 -->
      <div class="my-5 row justify-content-center" style="display: flex; margin:0 auto; ">
-        <div class="my-5 row justify-content-center" style="width:80%">
+        <div class="my-5 row justify-content-center w-50" >
             <table class="table mt-4 " >
                 <thead>
                     <tr>
                     <th></th>
                     <th>品名</th>
                     <th>數量</th>
-                    <th>單價</th>
+                    <th class="text-nowrap">單價</th>
                     </tr>
                 </thead>
                 <tbody>
                <tr v-for="(itemcart) in shoppingcart.carts"  :key="itemcart.id" >
-                    <td class="align-middle">
+                    <td class="align-middle ">
                       <button type="button" class="btn btn-outline-danger btn-sm"
                         @click="removeCartItem(itemcart.id)">
                         <i class="far fa-trash-alt"></i>
                       </button>
                     </td>
-                    <td>{{itemcart.product.title}}
-                      <div class="text-success" v-if="itemcart.coupon">
+                    <td class="text-nowrap">{{itemcart.product.title}}
+                      <div class="text-success " v-if="itemcart.coupon">
                       已套用優惠券
                       </div>
                     </td>
@@ -48,7 +48,8 @@
                 </tfoot>
             </table>
             <div class="input-group mb-3 input-group-sm">
-                <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼">
+                <input type="text" class="form-control" v-model="coupon_code"
+                placeholder="優惠碼請輸入: Thankyou">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" @click="addCouponCode">
                   套用優惠碼
@@ -57,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div class="my-5 row justify-content-center">
+    <div class="my-5 row justify-content-center mx-0">
       <validation-observer v-slot="{ invalid }" class="col-md-6">
           <form  @submit.prevent="createorder">
             <validation-provider  rules="required|email" v-slot="{ errors , classes}">
@@ -178,6 +179,9 @@ export default {
         if (response.data.success) {
           // console.log(response);
           vm.getCart();
+          vm.isLoading = false;
+        } else {
+          this.$bus.$emit('message:push', '優惠碼輸入錯誤', 'danger');
           vm.isLoading = false;
         }
       });
