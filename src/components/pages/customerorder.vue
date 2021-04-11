@@ -17,14 +17,18 @@
     </div>
 
     <div class="mx-3" >
-      <div>
+      <div >
         <h2 class="text-center ">{{product.title}}</h2>
-        <p class="h5">{{product.description}}</p>
-        <div class="contentp">
-          <span>{{product.content}}</span>
+        <p class="h5 text-center">{{product.description}}</p>
+        <div class="contentp mx-auto">
+          <p >{{product.content}}</p>
+          <br>
+          <p > Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Animi porro ad laborum. Libero recusandae officia rerum eum! Voluptatibus aperiam amet
+          officiis cupiditate voluptas est cum. Incidunt aspernatur aliquam modi laboriosam。</p>
         </div>
       </div>
-      <div class="h5" v-if="product.price">NT$ {{product.price}}元
+      <div class="h5 mt-3" v-if="product.price">NT$ {{product.price}}元
       </div>
       <select  class="form-control mt-3" v-model="product.num">
       <option :value="num" v-for="num in 15" :key="num">
@@ -48,7 +52,7 @@
     <p class="text-center border-top">相關商品</p>
     <div class="row mx-0 ">
       <div class="col-lg-4 text-center ">
-        <a href="#" @click="getRelatedproduct(products[1].id)">
+        <a href="#" @click="getRelatedproduct(products[2].id)">
         <div  style="height: 300px;background-size: cover; background-position: center;
         backgroundImage:url(https://upload.cc/i1/2021/03/26/QwClYx.jpg)">
         </div>
@@ -56,7 +60,7 @@
         </a>
       </div>
       <div class="col-lg-4 text-center ">
-        <a href="#" @click="getRelatedproduct(products[0].id)">
+        <a href="#" @click="getRelatedproduct(products[1].id)">
         <div  style="height: 300px;background-size: cover; background-position: center;
         backgroundImage:url(https://upload.cc/i1/2021/03/26/KrGovX.jpg)">
         </div>
@@ -64,7 +68,7 @@
         </a>
       </div>
       <div class="col-lg-4 text-center ">
-        <a href="#" @click="getRelatedproduct(products[3].id)">
+        <a href="#" @click="getRelatedproduct(products[4].id)">
         <div  style="height: 300px;background-size: cover; background-position: center;
         backgroundImage:url(https://upload.cc/i1/2021/03/26/jSMnwX.jpg)">
         </div>
@@ -96,7 +100,7 @@ export default {
       this.$http.get(api).then((response) => {
         vm.isLoading = false;
         vm.products = response.data.products;
-        console.log('vm.products', vm.products);
+        // console.log('vm.products', vm.products);
       });
     },
     getproduct() {
@@ -105,7 +109,7 @@ export default {
       vm.isLoading = true;
       this.$http.get(api).then((response) => {
         if (response.data.success) {
-          console.log('yooo', response.data);
+          // console.log(, response.data);
           vm.product = response.data.product;
           vm.isLoading = false;
         }

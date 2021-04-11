@@ -1,5 +1,6 @@
 <template>
   <div>
+  <alert></alert>
     <main class="form-signin">
         <form @submit.prevent="singin">
         <h1 class="h3 mb-3 fw-normal">請登入</h1>
@@ -21,6 +22,8 @@
 </template>
 
 <script>
+import alert from '../AlertMessage.vue';
+
 export default {
   name: 'HelloWorld',
   data() {
@@ -36,15 +39,20 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       this.$http.post(api, vm.user).then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         if (response.data.success) {
           const { token } = response.data;
           const { expired } = response.data;
           document.cookie = `mytoken= ${token}; expires= ${new Date(expired)}`;
           vm.$router.push('/Dashboard/products');
+        } else {
+          this.$bus.$emit('message:push', '帳號密碼錯誤', 'danger');
         }
       });
     },
+  },
+  components: {
+    alert,
   },
 };
 </script>

@@ -164,7 +164,7 @@ export default {
       vm.isLoading = true;
       this.$http.get(api).then((response) => {
         vm.shoppingcart = response.data.data;
-        console.log('vm.shoppingcart', vm.shoppingcart);
+        // console.log('vm.shoppingcart', vm.shoppingcart);
         vm.isLoading = false;
       });
     },
